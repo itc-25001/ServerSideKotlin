@@ -1,0 +1,19 @@
+name: book-manager
+
+services:
+  db:
+    image: mariadb:12.2
+    ports:
+      - "3316:3306"
+    container_name: mariadb_host
+    environment:
+     MARIADB_ROOT_PASSWORD: foobarhogepiyo
+    volumes:
+      - type: volume
+        source: db-data
+        target: /var/lib/mysql
+      - type: bind
+        source: ./initdb.d
+        target: /docker-entrypoint-initdb.d
+volumes:
+  db-data:
