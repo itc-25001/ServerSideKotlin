@@ -1,0 +1,18 @@
+name: exposed_example
+services:
+  db:
+    image: postgres:18-alpine
+    environment:
+      POSTGRES_PASSWORD: foobarhogepiyo
+    ports:
+      - "5432:5432"
+    volumes:
+      - type: volume
+        source: db_data
+        target: /var/lib/postgresql
+      - type: bind
+        source: ./initdb.d
+        target: /docker-entrypoint-initdb.d
+
+volumes:
+  db_data:

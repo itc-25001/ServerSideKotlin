@@ -1,5 +1,7 @@
 package jp.ac.it_college.std.s25001.kotlin.book.manager.presentation.config
 
+import jdk.jfr.Experimental
+import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonNamingStrategy
 import org.springframework.context.annotation.Bean
@@ -8,6 +10,7 @@ import org.springframework.http.converter.json.KotlinSerializationJsonHttpMessag
 
 @Configuration
 class KotlinxSerialization{
+    @OptIn(ExperimentalSerializationApi::class)
     @Bean
     fun messageConverter(): KotlinSerializationJsonHttpMessageConverter{
         val json = Json{

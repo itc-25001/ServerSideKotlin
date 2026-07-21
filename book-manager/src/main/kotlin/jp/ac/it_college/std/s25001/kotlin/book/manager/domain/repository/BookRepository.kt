@@ -5,4 +5,12 @@ import jp.ac.it_college.std.s25001.kotlin.book.manager.domain.model.BookWithRent
 
 interface BookRepository{
     fun findAllWithRental() : List<BookWithRental>
+
+    fun findWithRental(bookId: Long): BookWithRental?
+
+    fun register(book: Book)
+
+    fun update(book: Book)
+
+    fun delete(bookId: Long)
 }

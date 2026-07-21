@@ -15,5 +15,21 @@ services:
       - type: bind
         source: ./initdb.d
         target: /docker-entrypoint-initdb.d
+
+  redis:
+    image: valkey/valkey:9.1-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - type: volume
+        source: session-data
+        target: /data
+
+  front:
+    image: book-manager-front
+    ports:
+      - "8081:80"
+
 volumes:
   db-data:
+  session-data:

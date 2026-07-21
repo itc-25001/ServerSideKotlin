@@ -8,5 +8,4 @@ data class Rental(
     val userId: Long,
     val rentalDateTime: LocalDateTime,
     val returnDeadline: LocalDateTime,
-){
-}
+)
